@@ -10,11 +10,10 @@ def home():
 @app.route("/api/classify-number")
 def classify_num():
     number = request.args.get('number')
+
+    if not number or not number.isdigit():
+        return jsonify({"error": "Invalid number"}), 400
     return number
-
-#     if not number or not number.isdigit():
-#         return jsonify({"error": "Invalid number"}), 400
-
 #     number = int(number)  
 
 #     return jsonify({
