@@ -12,7 +12,10 @@ def classify_num():
     number = request.args.get('number')
 
     if not number or not number.isdigit():
-        return jsonify({"error": "Invalid number"}), 400
+        return jsonify({
+            "number": "alphabet",
+            "error": True}), 400
+    
 
     return jsonify({
         "is_prime": is_prime(number),
