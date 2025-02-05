@@ -7,9 +7,10 @@ app = Flask(__name__)
 def home():
     return "Flask server is running on Vercel!"
 
-# #@app.route("/api/classify-number")
-# def classify_num():
-#     number = request.args.get('number')
+@app.route("/api/classify-number")
+def classify_num():
+    number = request.args.get('number')
+    return number
 
 #     if not number or not number.isdigit():
 #         return jsonify({"error": "Invalid number"}), 400
