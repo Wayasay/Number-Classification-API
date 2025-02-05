@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-#from utils import is_prime, sum_digit, get_fun_fact, get_number_properties, is_perfect
+from utils import is_prime, sum_digit, get_fun_fact, get_number_properties, is_perfect
 
 app = Flask(__name__)
 
