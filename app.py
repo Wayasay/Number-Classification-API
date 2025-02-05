@@ -1,29 +1,32 @@
 from flask import Flask, jsonify, request
-from utils import is_prime, sum_digit, is_amstrong_number, get_fun_fact, get_number_properties, is_perfect
+from utils import is_prime, sum_digit, get_fun_fact, get_number_properties, is_perfect
 
 app = Flask(__name__)
 
-
-@app.route("/add")
-def add():
-    return str (is_prime(1+1))
-
+@app.route("/")
+def home():
+    return "Flask server is running on Vercel!"
 
 @app.route("/api/classify-number")
 def classify_num():
-    number = request.args.get('number')  
+    number = request.args.get('number')
+
+    if not number or not number.isdigit():
+        return jsonify({"error": "Invalid number"}), 400
+
+    number = int(number)  
+
     return jsonify({
         "is_prime": is_prime(number),
-        "digit_sum": sum_digit(number),
-        "fun_fact": get_fun_fact(number), 
-        "proprties": get_number_properties(number),
+        "digit_sum": sum_digit(str(number)),
+        "fun_fact": get_fun_fact(number),
+        "properties": get_number_properties(str(number)),
         "is_perfect": is_perfect(number)
     })
 
 
-
-
+def handler(event, context):
+    return app(event, context)
 
 if __name__ == "__main__":
     app.run(debug=True)
-

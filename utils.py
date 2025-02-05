@@ -91,4 +91,4 @@ def is_perfect(n: str) -> str:
 #print(is_odd(3) == True)
 
 # print(get_fun_fact(1))
-print(get_number_properties("371"))
+#print(get_number_properties("371"))
