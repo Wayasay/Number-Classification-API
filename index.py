@@ -13,16 +13,14 @@ def classify_num():
 
     if not number or not number.isdigit():
         return jsonify({"error": "Invalid number"}), 400
-    return number
-#     number = int(number)  
 
-#     return jsonify({
-#         "is_prime": is_prime(number),
-#         "digit_sum": sum_digit(str(number)),
-#         "fun_fact": get_fun_fact(number),
-#         "properties": get_number_properties(str(number)),
-#         "is_perfect": is_perfect(number)
-#     })
+    return jsonify({
+        "is_prime": is_prime(number),
+        "digit_sum": sum_digit(str(number)),
+        "fun_fact": get_fun_fact(number),
+        "properties": get_number_properties(str(number)),
+        "is_perfect": is_perfect(number)
+    })
 
 
 if __name__ == "__main__":
