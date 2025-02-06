@@ -84,8 +84,6 @@ def get_fun_fact(n):
 def is_even(n: str) -> bool:
     try:
         n = int(n) 
-        if n<0:
-            return False
     except ValueError:
         return False
     return n % 2 == 0 
@@ -93,8 +91,6 @@ def is_even(n: str) -> bool:
 def is_odd(n: str) -> bool:
     try:
         n = int(n) 
-        if n == 0 or n<0:
-            return False
     except ValueError:
         return False
     if n % 2 == 0:
