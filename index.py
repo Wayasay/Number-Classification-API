@@ -30,6 +30,5 @@ def classify_num():
         "is_perfect": is_perfect(number)
     })
 
-
 if __name__ == "__main__":
     app.run(debug=True)
