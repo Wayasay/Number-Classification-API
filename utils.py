@@ -11,7 +11,10 @@ def is_valid_number(number_str: str) -> bool:
 
 def is_prime(n: str) -> bool:
     """Check if a number is prime."""
-    n=int(n)
+    try:
+        n=int(n)
+    except ValueError:
+        return False
     if n <= 1:
         return False
     if n == 2:
@@ -24,15 +27,27 @@ def is_prime(n: str) -> bool:
     return True
 
 def sum_digit(number_str: str) -> str:
-    result = sum([int(number) for number in number_str])
-    result=int(result)
-    return result
+    try:
+        if int(number_str)  < 0:
+            number_str = number_str[1:]
+        result = sum([int(number) for number in number_str])
+        result=int(result)
+        return result
 
-def is_amstrong_number(number_str: str) -> tuple:
+    except ValueError: 
+        return 1
+
+
+def is_amstrong_number(number_str: str) -> bool:
+    try:
+        n = int(n) 
+        if n == 0 or n<0:
+            return False
+    except ValueError:
+        return False
     num_digits = len(number_str)
     result_str = []
     is_amstrong = False
-
     temp = []
     for number in number_str:
         temp.append(int(number) ** num_digits)
@@ -58,11 +73,21 @@ def get_fun_fact(n):
 
 
 def is_even(n: str) -> bool:
-   n = int(n)
-   return n % 2 == 0 
+    try:
+        n = int(n) 
+        if n == 0 or n<0:
+            return False
+    except ValueError:
+        return False
+    return n % 2 == 0 
 
 def is_odd(n: str) -> bool:
-    n = int(n)
+    try:
+        n = int(n) 
+        if n == 0 or n<0:
+            return False
+    except ValueError:
+        return False
     if n % 2 == 0:
         return False
     return True 
@@ -80,8 +105,10 @@ def get_number_properties(number_str: str):
 def is_perfect(n: str) -> str:
     try:
         n = int(n) 
+        if n == 0 or n<0:
+            return False
     except ValueError:
-        return "Invalid input, please enter an integer" 
+        return False
     
     divisors = [i for i in range(1, n) if n % i == 0]
     return True if sum(divisors) == n else False
