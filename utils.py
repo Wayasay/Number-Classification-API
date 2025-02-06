@@ -1,5 +1,6 @@
 import requests
 
+
 def is_valid_number(number_str: str) -> bool:
     try:
         _ = int(number_str)
@@ -83,7 +84,7 @@ def is_perfect(n: str) -> str:
         return "Invalid input, please enter an integer" 
     
     divisors = [i for i in range(1, n) if n % i == 0]
-    return "True" if sum(divisors) == n else "False"
+    return True if sum(divisors) == n else False
 
 
 
